@@ -1,0 +1,329 @@
+.client-logos {
+    background: #fbfdff;
+    padding: 80px 24px;
+}
+
+.client-logos .wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.client-logos-title {
+    text-align: center;
+    font-size: 44px;
+    margin: 0 0 28px;
+    font-weight: 800;
+    color: #0b1220;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.client-logo {
+    width: 190px;
+    padding: 0px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(11, 18, 32, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width:1100px) {
+    .logo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+    }
+
+    .client-logos-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width:700px) {
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .client-logos {
+        padding: 40px 16px;
+    }
+
+    .client-logos-title {
+        font-size: 24px;
+        line-height: 1.2
+    }
+}
+
+/* FAQ styles (top-level) */
+.faqs {
+    padding: 20px 0;
+    background: #fff;
+}
+
+.faqs .wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px;
+    animation: faqFadeUp 640ms ease both;
+}
+
+.faqs-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 36px;
+    font-weight: 700;
+}
+
+.faqs-grid {
+    display: grid;
+    gap: 36px;
+    align-items: start;
+}
+
+.faqs-left .faq-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.faq-item {
+    border-top: 1px solid #eee;
+    padding: 22px 0;
+}
+
+.faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
+    font-size: 22px;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.faq-q:hover {
+    color: var(--blue)
+}
+
+.faq-q:focus {
+    outline: 3px solid rgba(42, 157, 143, 0.18);
+    border-radius: 6px;
+}
+
+.chev {
+    display: inline-block;
+    transition: transform 320ms cubic-bezier(.2, .9, .2, 1);
+    font-size: 22px;
+    color: #3639e7;
+}
+
+.faq-a {
+    color: #555;
+    margin-top: 12px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height 420ms cubic-bezier(.2, .9, .2, 1), opacity 320ms ease, transform 320ms ease;
+}
+
+.faq-item.open .faq-a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-item.open {
+    border-top-color: var(--blue)
+}
+
+.faq-item.open .chev {
+    transform: rotate(180deg);
+}
+
+.faq-item.open .faq-q {
+    color: var(--blue)
+}
+
+.faqs-right .faq-cta {
+    background: #f7f9f9;
+    padding: 28px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.faqs-right .btn {
+    margin-top: 14px;
+}
+
+@media (max-width: 1100px) {
+    .faqs .wrap {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .faqs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faqs-right {
+        order: -1;
+    }
+}
+
+@media (max-width:700px) {
+    .faqs-title {
+        font-size: 28px
+    }
+
+    .faq-q {
+        font-size: 16px
+    }
+}
+
+@keyframes faqFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Consultation 3-column section */
+.consultation {
+    padding: 20px 0 84px;
+    background: #fbfdff;
+}
+
+.consult-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr 420px;
+    gap: 28px;
+    align-items: center;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.consult-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(11, 18, 32, 0.06);
+    display: block;
+}
+
+.consult-content h2 {
+    font-size: 34px;
+    margin: 0 0 12px;
+}
+
+.consult-content p {
+    color: #444;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.consult-form .contact-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
+}
+
+.contact-form .form-row {
+    margin-bottom: 12px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #2057c5
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #8f8f8f;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.contact-form .two-up {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-form .two-up>div {
+    flex: 1
+}
+
+.btn-block {
+    width: 100%;
+    display: inline-block;
+    text-align: center
+}
+
+.form-response {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #0b9d7f
+}
+
+@media (max-width:1100px) {
+    .consult-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .consult-image {
+        order: -1
+    }
+}
+
+@media (max-width:520px) {
+    .consult-content h2 {
+        font-size: 24px;
+        line-height: 1.2
+    }
+
+    .consultation {
+        padding: 10px 0 56px
+    }
+
+    .consult-form .contact-form {
+        padding: 16px
+    }
+
+    .contact-form .two-up {
+        flex-direction: column
+    }
+}
