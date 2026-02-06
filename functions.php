@@ -29,25 +29,30 @@ function appscrip_clone_enqueue_styles() {
     // Global CSS
     wp_enqueue_style( 'appscrip-main', get_template_directory_uri() . '/assets/css/main.css', array('appscrip-style'), '1.0' );
 
-    // Front page specific stylesheet (use filemtime for cache-busting during development)
-    $front_css_path = get_template_directory() . '/assets/css/front-page.css';
-    $front_css_ver = file_exists( $front_css_path ) ? filemtime( $front_css_path ) : '1.0';
-    wp_enqueue_style( 'appscrip-front', get_template_directory_uri() . '/assets/css/front-page.css', array('appscrip-main'), $front_css_ver );
-    // Client logos stylesheet (front-page additions)
-    $logos_css_path = get_template_directory() . '/assets/css/_append_client_logos.css';
-    $logos_css_ver = file_exists( $logos_css_path ) ? filemtime( $logos_css_path ) : '1.0';
-    wp_enqueue_style( 'appscrip-client-logos', get_template_directory_uri() . '/assets/css/_append_client_logos.css', array('appscrip-front'), $logos_css_ver );
+    // Front page specific styles (only load on front page)
+    if ( is_front_page() ) {
+        $front_css_path = get_template_directory() . '/assets/css/front-page.css';
+        $front_css_ver = file_exists( $front_css_path ) ? filemtime( $front_css_path ) : '1.0';
+        wp_enqueue_style( 'appscrip-front', get_template_directory_uri() . '/assets/css/front-page.css', array('appscrip-main'), $front_css_ver );
+
+        // Client logos stylesheet (front-page additions)
+        $logos_css_path = get_template_directory() . '/assets/css/_append_client_logos.css';
+        $logos_css_ver = file_exists( $logos_css_path ) ? filemtime( $logos_css_path ) : '1.0';
+        wp_enqueue_style( 'appscrip-client-logos', get_template_directory_uri() . '/assets/css/_append_client_logos.css', array('appscrip-front'), $logos_css_ver );
+    }
 
     // Navigation script (mobile menu toggle)
     wp_enqueue_script( 'appscrip-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0', true );
-    // Testimonials carousel script
-    wp_enqueue_script( 'appscrip-carousel', get_template_directory_uri() . '/assets/js/carousel.js', array('appscrip-navigation'), '1.0', true );
+    if ( is_front_page() ) {
+        // Testimonials carousel script
+        wp_enqueue_script( 'appscrip-carousel', get_template_directory_uri() . '/assets/js/carousel.js', array('appscrip-navigation'), '1.0', true );
         // FAQ script
-            wp_enqueue_script('appscrip-faq', get_template_directory_uri() . '/assets/js/faq.js', array(), '1.0', true );
+        wp_enqueue_script('appscrip-faq', get_template_directory_uri() . '/assets/js/faq.js', array(), '1.0', true );
         // Contact form script
         $contact_js_path = get_template_directory() . '/assets/js/contact-form.js';
         $contact_js_ver = file_exists( $contact_js_path ) ? filemtime( $contact_js_path ) : '1.0';
         wp_enqueue_script('appscrip-contact', get_template_directory_uri() . '/assets/js/contact-form.js', array(), $contact_js_ver, true );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'appscrip_clone_enqueue_styles' );
 
