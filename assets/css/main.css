@@ -497,6 +497,111 @@ body.has-sticky-header {
     font-weight: 600
 }
 
+/* Subscription modal */
+.subscribe-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 140
+}
+
+.subscribe-modal.is-open {
+    display: flex
+}
+
+.subscribe-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45)
+}
+
+.subscribe-modal__panel {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    background: #0b2aa7;
+    border-radius: 50%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 36px;
+    color: #fff;
+    z-index: 1;
+    transform: translateY(-30px);
+    opacity: 0;
+    transition: transform 420ms cubic-bezier(.2, .9, .2, 1), opacity 320ms ease
+}
+
+.subscribe-modal.is-open .subscribe-modal__panel {
+    transform: translateY(0);
+    opacity: 1
+}
+
+.subscribe-modal__panel h3 {
+    margin: 0 0 18px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 700
+}
+
+.subscribe-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center
+}
+
+.subscribe-form input[type="email"] {
+    width: 80%;
+    max-width: 260px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 0;
+    font-size: 14px
+}
+
+.subscribe-form button {
+    background: #ef5b8c;
+    color: #fff;
+    border: 0;
+    padding: 9px 18px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.subscribe-modal__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 0;
+    background: #5b3ca8;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer
+}
+
+@media (max-width:520px) {
+    .subscribe-modal__panel {
+        width: 320px;
+        height: 320px;
+        padding: 24px
+    }
+
+    .subscribe-modal__panel h3 {
+        font-size: 16px
+    }
+}
+
 /* Floating actions */
 .floating-action {
     position: fixed;

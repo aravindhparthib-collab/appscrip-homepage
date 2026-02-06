@@ -45,6 +45,27 @@ document.addEventListener('DOMContentLoaded', function(){
     mobileBackdrop.addEventListener('click', closeMobileDrawer);
   }
 
+  // Subscription modal
+  const subscribeModal = document.querySelector('#subscribe-modal');
+  if(subscribeModal){
+    const openModal = () => {
+      subscribeModal.classList.add('is-open');
+      subscribeModal.setAttribute('aria-hidden', 'false');
+    };
+    const closeModal = () => {
+      subscribeModal.classList.remove('is-open');
+      subscribeModal.setAttribute('aria-hidden', 'true');
+    };
+
+    setTimeout(openModal, 1200);
+
+    subscribeModal.addEventListener('click', function(e){
+      if(e.target.matches('[data-subscribe-close]')){
+        closeModal();
+      }
+    });
+  }
+
 
   // Mega menu (Products) hover/focus handling for desktop
   const megaMenu = document.querySelector('.mega-menu');
